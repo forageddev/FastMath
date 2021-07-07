@@ -33,7 +33,6 @@
     <Content Include="routes\index.js" />
     <Content Include="routes\users.js" />
     <Content Include="package.json" />
-    <Content Include="public\stylesheets\main.css" />
     <Content Include="README.md" />
     <Content Include="views\index.ejs" />
     <Content Include="views\error.ejs" />
@@ -45,10 +44,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="public\" />
-    <Folder Include="public\images\" />
-    <Folder Include="public\javascripts\" />
-    <Folder Include="public\stylesheets\" />
     <Folder Include="routes\" />
     <Folder Include="views\" />
     <Folder Include="views\partials\" />
