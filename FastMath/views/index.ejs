@@ -6,9 +6,22 @@
     <body class="container">
         <main>
           <div class="title jumbotron">
-            <h1>math bad k?</h1>
-            <p>its just numbers</p>
-            <small id="time">0 ms</small>
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>math bad k?</h1>
+                    <p>its just numbers</p>
+                    <small id="time">0 ms</small>
+                    <small id="ran">0 calculations</small>
+                </div>
+
+                <div class="col-md-6 text-center">
+                    <button class="btn btn-outline-primary" onclick="randomNumber();">Do random number</button>
+                    <br><br>
+                    <button class="btn btn-outline-danger" onclick="randomMethod();">Do random method</button>
+                    <br><br>
+                    <button class="btn btn-outline-secondary" onclick="randomNumber();randomMethod();">Fully randomize</button>
+                </div>
+            </div>
           </div>
         </main>
 
@@ -17,13 +30,16 @@
         <div class="container text-center">
             <form class="card" name="inpoot" onsubmit="return tryDoMath()">
                 <br>
-                Number: <input class="ml-auto mr-auto" type="number" name="number">
+                Number: <input class="ml-auto mr-auto" type="text" name="number">
                 <br><br>
                 Do what: <input class="ml-auto mr-auto" type="text" name="toDo">
                 <br>
                 <p>This thing big brain it understand range yes. example (3-8)</p>
                 <br>
-                <input class="btn btn-success ml-auto mr-auto" type="submit" value="Submit">
+                <div>
+                  <input class="btn btn-success ml-auto mr-auto" type="submit" value="Submit">
+                  <button class="btn btn-success ml-auto mr-auto" onclick="randomNumber();randomMethod();" role="submit">New Result</button>
+                </div>
                 <br>
             </form>
         </div>
@@ -44,6 +60,18 @@
     </body>
 
     <script>
+        function randomNumber() {
+          document.forms["inpoot"]["number"].value = Math.floor((Math.random() * 100) + 1);
+        }
+
+        function randomMethod() {
+            if (Math.floor((Math.random() * 3)) == 1) {
+              document.forms["inpoot"]["toDo"].value = Math.floor((Math.random() * 50) + 1) + "-" + Math.floor((Math.random() * 100) + 51);
+            } else {
+              document.forms["inpoot"]["toDo"].value = Math.floor((Math.random() * 100) + 1);
+            }
+        }
+
         function tryDoMath() {
           let start = Date.now();
 
@@ -60,6 +88,7 @@
           }
 
           var ul = document.getElementById("list");
+          var ran = document.getElementById("ran");
           ul.innerHTML = "";
 
           if (toDo.includes("-")) {
@@ -71,6 +100,8 @@
                 div.classList.add("p-3");
                 div.appendChild(document.createTextNode(number + " * " + i + " = " + number * i));
                 ul.appendChild(div);
+
+                ran.innerHTML = (data[1] - data[0]) + " calculations";
             }
           } else {
             var div = document.createElement("div");
@@ -78,6 +109,8 @@
             div.classList.add("p-3");
             div.appendChild(document.createTextNode(number + " * " + toDo + " = " + number * toDo));
             ul.appendChild(div);
+            
+            ran.innerHTML = "1 calculation";
           }
 
           var time = document.getElementById("time");
