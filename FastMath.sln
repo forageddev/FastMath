@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "FastMath", "FastMath\FastMath.njsproj", "{EF24E3BA-5E90-4144-A900-EBA66FEADACA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF24E3BA-5E90-4144-A900-EBA66FEADACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF24E3BA-5E90-4144-A900-EBA66FEADACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF24E3BA-5E90-4144-A900-EBA66FEADACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF24E3BA-5E90-4144-A900-EBA66FEADACA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A22D5B2D-3CF9-4E73-8E65-69193877B31C}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,20 @@
+{
+  "name": "fast-math",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "description": "FastMath",
+  "author": {
+    "name": ""
+  },
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "ejs": "^3.1.6",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  }
+}

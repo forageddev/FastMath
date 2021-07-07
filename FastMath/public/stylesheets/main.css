@@ -1,0 +1,13 @@
+html {
+    --primary: #975BFF;
+}
+
+.title {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: var(--primary);
+}
+
+a {
+    color: #00B7FF;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <%- include('partials/head'); %>
+    </head>
+    <body class="container">
+        <main>
+          <div class="title jumbotron">
+            <h1>math bad k?</h1>
+            <p>its just numbers</p>
+            <small id="time">0 ms</small>
+          </div>
+        </main>
+
+        <br>
+
+        <div class="container text-center">
+            <form class="card" name="inpoot" onsubmit="return tryDoMath()">
+                <br>
+                Number: <input class="ml-auto mr-auto" type="number" name="number">
+                <br><br>
+                Do what: <input class="ml-auto mr-auto" type="text" name="toDo">
+                <br>
+                <p>This thing big brain it understand range yes. example (3-8)</p>
+                <br>
+                <input class="btn btn-success ml-auto mr-auto" type="submit" value="Submit">
+                <br>
+            </form>
+        </div>
+        <br>
+        <div id="container text-center">
+            <div id="list" class="row text-center justify-content-center">
+                <div class="card col p-2">
+                    <small>Result appear here yes good</small>
+                </div>
+            </div>
+        </div>
+
+        <br>
+
+        <footer>
+          <%- include('partials/footer'); %>
+        </footer>
+    </body>
+
+    <script>
+        function tryDoMath() {
+          let start = Date.now();
+
+          let number = document.forms["inpoot"]["number"].value;
+          if (number == "") {
+            alert("U need a number stoopid");
+            return false;
+          }
+
+          let toDo = document.forms["inpoot"]["toDo"].value;
+          if (toDo == "") {
+            alert("U need to do somthing to number stoopid");
+            return false;
+          }
+
+          var ul = document.getElementById("list");
+          ul.innerHTML = "";
+
+          if (toDo.includes("-")) {
+            let data = toDo.split("-");
+
+            for (let i = data[0]; i <= data[1]; i++) {
+                var div = document.createElement("div");
+                div.classList.add("card");
+                div.classList.add("p-3");
+                div.appendChild(document.createTextNode(number + " * " + i + " = " + number * i));
+                ul.appendChild(div);
+            }
+          } else {
+            var div = document.createElement("div");
+            div.classList.add("card");
+            div.classList.add("p-3");
+            div.appendChild(document.createTextNode(number + " * " + toDo + " = " + number * toDo));
+            ul.appendChild(div);
+          }
+
+          var time = document.getElementById("time");
+          time.innerHTML = (Date.now() - start) + " ms";
+
+          return false;
+        }
+    </script>
+</html>
