@@ -91,30 +91,39 @@
           var ran = document.getElementById("ran");
           ul.innerHTML = "";
 
-          if (toDo.includes("-")) {
-            let data = toDo.split("-");
+          if (number === "911" || number === "9/11") {
+            ul.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/NsKaCS3CtsY?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+          } else if (number === "69" && toDo === "420") {
+            ul.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+          } else if (number === "999" && toDo === "999") {
+            ul.innerHTML = `<iframe width="560" height="315" src="https://www.youtube.com/embed/_1zQgTGmMW4?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+          } else {
 
-            for (let i = data[0]; i <= data[1]; i++) {
+              if (toDo.includes("-")) {
+                let data = toDo.split("-");
+
+                for (let i = data[0]; i <= data[1]; i++) {
+                    var div = document.createElement("div");
+                    div.classList.add("card");
+                    div.classList.add("p-3");
+                    div.appendChild(document.createTextNode(number + " * " + i + " = " + number * i));
+                    ul.appendChild(div);
+
+                    ran.innerHTML = (data[1] - data[0]) + " calculations";
+                }
+              } else {
                 var div = document.createElement("div");
                 div.classList.add("card");
                 div.classList.add("p-3");
-                div.appendChild(document.createTextNode(number + " * " + i + " = " + number * i));
+                div.appendChild(document.createTextNode(number + " * " + toDo + " = " + number * toDo));
                 ul.appendChild(div);
-
-                ran.innerHTML = (data[1] - data[0]) + " calculations";
-            }
-          } else {
-            var div = document.createElement("div");
-            div.classList.add("card");
-            div.classList.add("p-3");
-            div.appendChild(document.createTextNode(number + " * " + toDo + " = " + number * toDo));
-            ul.appendChild(div);
             
-            ran.innerHTML = "1 calculation";
-          }
+                ran.innerHTML = "1 calculation";
+              }
 
-          var time = document.getElementById("time");
-          time.innerHTML = (Date.now() - start) + " ms";
+              var time = document.getElementById("time");
+              time.innerHTML = (Date.now() - start) + " ms";
+          }
 
           return false;
         }
